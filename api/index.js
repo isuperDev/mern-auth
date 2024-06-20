@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
 import mongoose from 'mongoose';
-
+import userRouter from './routes/user.routes.js';
 
 mongoose.connect(process.env.DB)
 .then(()=>
@@ -20,3 +20,5 @@ app.listen(
     3000,
     () => {console.log('Server listening on port 3000!')}
 );
+
+app.use('/api/user', userRouter);
